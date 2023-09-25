@@ -1,3 +1,4 @@
+import 'package:bloc_flutter_state/pages/bloc.dart';
 import 'package:bloc_flutter_state/pages/cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Redux Flutter',
+      title: 'Bloc Flutter',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.red,
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
       home: const HomePage(),
       routes: {
         '/cubit-page': (context) => const CubitPage(),
+        '/bloc-page': (context) => const BlocPage(),
       },
     );
   }
@@ -44,7 +46,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Redux Flutter'),
+        title: const Text('Bloc Flutter'),
       ),
       body: SizedBox(
         width: double.infinity,
@@ -52,9 +54,9 @@ class HomePage extends StatelessWidget {
           children: [
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context).pushNamed('/item-filter');
+                Navigator.of(context).pushNamed('/bloc-page');
               },
-              child: const Text('Item Filter Page'),
+              child: const Text('Bloc Page'),
             ),
             ElevatedButton(
               onPressed: () {
