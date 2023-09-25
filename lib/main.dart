@@ -1,4 +1,4 @@
-import 'package:bloc_flutter_state/pages/cubir.dart';
+import 'package:bloc_flutter_state/pages/cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -20,6 +20,10 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         textTheme: GoogleFonts.mooliTextTheme().copyWith(
           labelLarge: GoogleFonts.mooli(
+            fontSize: 18,
+            fontWeight: FontWeight.normal,
+          ),
+          bodyMedium: GoogleFonts.mooli(
             fontSize: 18,
             fontWeight: FontWeight.normal,
           ),
