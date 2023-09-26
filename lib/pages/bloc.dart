@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 @immutable
 abstract class LoadAction {
@@ -29,6 +29,10 @@ extension UrlString on PersonUrl {
         return 'http://10.0.2.2:5500/api/persons2.json';
     }
   }
+}
+
+extension Subscript<T> on Iterable<T> {
+  T? operator [](int index) => length > index ? elementAt(index) : null;
 }
 
 @immutable
@@ -98,10 +102,63 @@ class BlocPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Bloc Page'),
-      ),
-      body: Text('Bloc'),
-    );
+        appBar: AppBar(
+          title: const Text('Bloc Page'),
+        ),
+        body: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    context.read<PersonsBloc>().add(
+                          const LoadPersonsAction(
+                            url: PersonUrl.persons1,
+                          ),
+                        );
+                  },
+                  child: const Text('Persons 1'),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    context.read<PersonsBloc>().add(
+                          const LoadPersonsAction(
+                            url: PersonUrl.persons2,
+                          ),
+                        );
+                  },
+                  child: const Text('Persons 2'),
+                ),
+              ],
+            ),
+            BlocBuilder<PersonsBloc, FetchResult?>(
+              buildWhen: (previous, current) {
+                return previous?.persons != current?.persons;
+              },
+              builder: (context, fetchResult) {
+                final persons = fetchResult?.persons;
+                if (persons == null) {
+                  return const SizedBox();
+                } else {
+                  return Expanded(
+                    child: ListView.builder(
+                        itemCount: persons.length,
+                        itemBuilder: (context, index) {
+                          final person = persons[index]!;
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 32),
+                            child: ListTile(
+                              title: Text(person.name),
+                              trailing: Text(person.age.toString()),
+                            ),
+                          );
+                        }),
+                  );
+                }
+              },
+            )
+          ],
+        ));
   }
 }
