@@ -52,6 +52,20 @@ Future<Iterable<Person>> getPersons(String url) => HttpClient()
     .then((str) => json.decode(str) as List<dynamic>)
     .then((list) => list.map((e) => Person.fromJson(e)));
 
+@immutable
+class FetchResult {
+  final Iterable<Person> persons;
+  final bool isFromCache;
+  const FetchResult({
+    required this.persons,
+    required this.isFromCache,
+  });
+
+  @override
+  String toString() =>
+      'FetchResults (isFromCache = $isFromCache, persons = $persons)';
+}
+
 class BlocPage extends StatelessWidget {
   const BlocPage({super.key});
 
