@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 
 @immutable
@@ -64,6 +65,31 @@ class FetchResult {
   @override
   String toString() =>
       'FetchResults (isFromCache = $isFromCache, persons = $persons)';
+}
+
+class PersonsBloc extends Bloc<LoadAction, FetchResult?> {
+  final Map<PersonUrl, Iterable<Person>> _cache = {};
+  PersonsBloc() : super(null) {
+    on<LoadPersonsAction>((event, emit) async {
+      final url = event.url;
+      if (_cache.containsKey(url)) {
+        final cachedPersons = _cache[url]!;
+        final result = FetchResult(
+          persons: cachedPersons,
+          isFromCache: true,
+        );
+        emit(result);
+      } else {
+        final persons = await getPersons(url.urlString);
+        _cache[url] = persons;
+        final result = FetchResult(
+          persons: persons,
+          isFromCache: false,
+        );
+        emit(result);
+      }
+    });
+  }
 }
 
 class BlocPage extends StatelessWidget {
