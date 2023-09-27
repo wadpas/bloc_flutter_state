@@ -1,4 +1,5 @@
 import 'package:bloc_flutter_state/bloc/persons_bloc.dart';
+import 'package:bloc_flutter_state/pages/notes.dart';
 import 'package:bloc_flutter_state/pages/persons.dart';
 import 'package:bloc_flutter_state/pages/random_name.dart';
 import 'package:flutter/material.dart';
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
         ),
         home: const HomePage(),
         routes: {
+          '/notes': (context) => const NotesPage(),
           '/persons': (context) => const PersonsPage(),
           '/random_name': (context) => const RandomNamePage(),
         },
@@ -57,6 +59,12 @@ class HomePage extends StatelessWidget {
         width: double.infinity,
         child: Column(
           children: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed('/notes');
+              },
+              child: const Text('Notes'),
+            ),
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context).pushNamed('/persons');

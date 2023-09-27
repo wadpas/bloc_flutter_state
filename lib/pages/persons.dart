@@ -25,36 +25,31 @@ class PersonsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Bloc Page'),
+          title: const Text('Persons'),
         ),
         body: Column(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    context.read<PersonsBloc>().add(
-                          const LoadPersonsAction(
-                            url: persons1Url,
-                            loader: getPersons,
-                          ),
-                        );
-                  },
-                  child: const Text('Persons 1'),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    context.read<PersonsBloc>().add(
-                          const LoadPersonsAction(
-                            url: persons2Url,
-                            loader: getPersons,
-                          ),
-                        );
-                  },
-                  child: const Text('Persons 2'),
-                ),
-              ],
+            ElevatedButton(
+              onPressed: () {
+                context.read<PersonsBloc>().add(
+                      const LoadPersonsAction(
+                        url: persons1Url,
+                        loader: getPersons,
+                      ),
+                    );
+              },
+              child: const Text('Persons List 1'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                context.read<PersonsBloc>().add(
+                      const LoadPersonsAction(
+                        url: persons2Url,
+                        loader: getPersons,
+                      ),
+                    );
+              },
+              child: const Text('Persons List 2'),
             ),
             BlocBuilder<PersonsBloc, FetchResult?>(
               buildWhen: (previous, current) {

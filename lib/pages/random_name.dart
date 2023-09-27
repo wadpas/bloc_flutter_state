@@ -44,7 +44,7 @@ class _RandomNamePageState extends State<RandomNamePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Cubit Page'),
+        title: const Text('Random Name'),
       ),
       body: Container(
         alignment: Alignment.topCenter,
@@ -55,7 +55,7 @@ class _RandomNamePageState extends State<RandomNamePage> {
               onPressed: () {
                 cubit.pickRandomName();
               },
-              child: const Text('Random Name'),
+              child: const Text('Get Name'),
             );
             switch (snapshot.connectionState) {
               case ConnectionState.none:
