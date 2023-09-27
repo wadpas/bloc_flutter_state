@@ -1,5 +1,6 @@
-import 'package:bloc_flutter_state/pages/bloc.dart';
-import 'package:bloc_flutter_state/pages/cubit.dart';
+import 'package:bloc_flutter_state/bloc/persons_bloc.dart';
+import 'package:bloc_flutter_state/pages/persons.dart';
+import 'package:bloc_flutter_state/pages/random_name.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -35,8 +36,8 @@ class MyApp extends StatelessWidget {
         ),
         home: const HomePage(),
         routes: {
-          '/cubit-page': (context) => const CubitPage(),
-          '/bloc-page': (context) => const BlocPage(),
+          '/persons': (context) => const PersonsPage(),
+          '/random_name': (context) => const RandomNamePage(),
         },
       ),
     );
@@ -58,15 +59,15 @@ class HomePage extends StatelessWidget {
           children: [
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context).pushNamed('/bloc-page');
+                Navigator.of(context).pushNamed('/persons');
               },
-              child: const Text('Bloc Page'),
+              child: const Text('Persons'),
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context).pushNamed('/cubit-page');
+                Navigator.of(context).pushNamed('/random_name');
               },
-              child: const Text('Cubit Page'),
+              child: const Text('Random Name'),
             ),
           ],
         ),

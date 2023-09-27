@@ -18,14 +18,14 @@ class NamesCubit extends Cubit<String?> {
       );
 }
 
-class CubitPage extends StatefulWidget {
-  const CubitPage({super.key});
+class RandomNamePage extends StatefulWidget {
+  const RandomNamePage({super.key});
 
   @override
-  State<CubitPage> createState() => _CubitPageState();
+  State<RandomNamePage> createState() => _RandomNamePageState();
 }
 
-class _CubitPageState extends State<CubitPage> {
+class _RandomNamePageState extends State<RandomNamePage> {
   late final NamesCubit cubit;
 
   @override
