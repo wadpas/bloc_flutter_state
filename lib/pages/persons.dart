@@ -1,11 +1,10 @@
 import 'dart:convert';
 import 'dart:io';
-
-import 'package:bloc_flutter_state/actions/persons_actions.dart';
-import 'package:bloc_flutter_state/bloc/persons_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'package:bloc_flutter_state/actions/persons_actions.dart';
+import 'package:bloc_flutter_state/bloc/persons_bloc.dart';
 import 'package:bloc_flutter_state/models/person.dart';
 
 Future<Iterable<Person>> getPersons(String url) => HttpClient()
