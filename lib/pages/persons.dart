@@ -27,60 +27,64 @@ class PersonsPage extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Persons'),
         ),
-        body: Column(
-          children: [
-            ElevatedButton(
-              onPressed: () {
-                context.read<PersonsBloc>().add(
-                      const LoadPersonsAction(
-                        url: persons1Url,
-                        loader: getPersons,
-                      ),
-                    );
-              },
-              child: const Text('Persons List 1'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                context.read<PersonsBloc>().add(
-                      const LoadPersonsAction(
-                        url: persons2Url,
-                        loader: getPersons,
-                      ),
-                    );
-              },
-              child: const Text('Persons List 2'),
-            ),
-            BlocBuilder<PersonsBloc, FetchResult?>(
-              buildWhen: (previous, current) {
-                return previous?.persons != current?.persons;
-              },
-              builder: (context, fetchResult) {
-                final persons = fetchResult?.persons;
-                if (persons == null) {
-                  return const SizedBox();
-                } else {
-                  return Expanded(
-                    child: ListView.builder(
-                        itemCount: persons.length,
-                        itemBuilder: (context, index) {
-                          final person = persons[index]!;
-                          return Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 32),
-                            child: ListTile(
-                              title: Text(person.name),
-                              trailing: Text(
-                                person.age.toString(),
-                                style: const TextStyle(fontSize: 16),
+        body: SizedBox(
+          width: double.infinity,
+          child: Column(
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  context.read<PersonsBloc>().add(
+                        const LoadPersonsAction(
+                          url: persons1Url,
+                          loader: getPersons,
+                        ),
+                      );
+                },
+                child: const Text('Persons List 1'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  context.read<PersonsBloc>().add(
+                        const LoadPersonsAction(
+                          url: persons2Url,
+                          loader: getPersons,
+                        ),
+                      );
+                },
+                child: const Text('Persons List 2'),
+              ),
+              BlocBuilder<PersonsBloc, FetchResult?>(
+                buildWhen: (previous, current) {
+                  return previous?.persons != current?.persons;
+                },
+                builder: (context, fetchResult) {
+                  final persons = fetchResult?.persons;
+                  if (persons == null) {
+                    return const SizedBox();
+                  } else {
+                    return Expanded(
+                      child: ListView.builder(
+                          itemCount: persons.length,
+                          itemBuilder: (context, index) {
+                            final person = persons[index]!;
+                            return Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 32),
+                              child: ListTile(
+                                title: Text(person.name),
+                                trailing: Text(
+                                  person.age.toString(),
+                                  style: const TextStyle(fontSize: 16),
+                                ),
                               ),
-                            ),
-                          );
-                        }),
-                  );
-                }
-              },
-            )
-          ],
+                            );
+                          }),
+                    );
+                  }
+                },
+              )
+            ],
+          ),
         ));
   }
 }
