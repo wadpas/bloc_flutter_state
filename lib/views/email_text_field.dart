@@ -1,10 +1,10 @@
 import 'package:bloc_flutter_state/models/strings.dart';
 import 'package:flutter/material.dart';
 
-class EmailTextField extends StatelessWidget {
+class PasswordTextField extends StatelessWidget {
   final TextEditingController passwordController;
 
-  const EmailTextField({
+  const PasswordTextField({
     super.key,
     required this.passwordController,
   });
