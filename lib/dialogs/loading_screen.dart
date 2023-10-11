@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class LoadingScreen {
   LoadingScreen._sharedInstance();
   static final LoadingScreen _shared = LoadingScreen._sharedInstance();
-  factory LoadingScreen.instance() => _shared;
+  factory LoadingScreen() => _shared;
 
   LoadindScreenController? _controller;
 

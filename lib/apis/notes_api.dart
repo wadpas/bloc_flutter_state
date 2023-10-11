@@ -13,7 +13,7 @@ abstract class NotesApiProtocol {
 class NotesApi implements NotesApiProtocol {
   const NotesApi._sharedInstance();
   static const NotesApi _shared = NotesApi._sharedInstance();
-  factory NotesApi.instance() => _shared;
+  factory NotesApi() => _shared;
 
   @override
   Future<Iterable<Note>?> getNotes({required LoginHandle loginHandle}) {
