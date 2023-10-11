@@ -7,6 +7,8 @@ import 'package:bloc_flutter_state/dialogs/loading_screen.dart';
 import 'package:bloc_flutter_state/models/notes.dart';
 import 'package:bloc_flutter_state/models/strings.dart';
 import 'package:bloc_flutter_state/states/notes_state.dart';
+import 'package:bloc_flutter_state/views/iterable_list_view.dart';
+import 'package:bloc_flutter_state/views/login_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -53,7 +55,21 @@ class NotesPage extends StatelessWidget {
             }
           },
           builder: (context, notesState) {
-            return Container();
+            final notes = notesState.fetchedNotes;
+            if (notes == null) {
+              return LoginView(
+                onLoginTapped: (email, password) {
+                  context.read<NotesBloc>().add(
+                        LoginAction(
+                          email: email,
+                          password: password,
+                        ),
+                      );
+                },
+              );
+            } else {
+              return notes.toListView();
+            }
           },
         ),
       ),
