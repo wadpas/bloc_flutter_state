@@ -1,3 +1,4 @@
+import 'package:bloc_flutter_state/apis/login_api.dart';
 import 'package:bloc_flutter_state/apis/notes_api.dart';
 import 'package:bloc_flutter_state/models/notes.dart';
 import 'package:flutter/foundation.dart';
@@ -28,6 +29,29 @@ class DummyNotesApi implements NotesApiProtocol {
   }) async {
     if (loginHandle == acceptedLoginHandle) {
       return acceptedNotesLoginHandle;
+    } else {
+      return null;
+    }
+  }
+}
+
+@immutable
+class DummyLoginApi implements LoginApiProtocol {
+  final String acceptedEmail;
+  final String acceptedPassword;
+
+  const DummyLoginApi({
+    required this.acceptedEmail,
+    required this.acceptedPassword,
+  });
+
+  @override
+  Future<LoginHandle?> login({
+    required String email,
+    required String password,
+  }) async {
+    if (email == acceptedEmail && password == acceptedPassword) {
+      return const LoginHandle.foobar();
     } else {
       return null;
     }
