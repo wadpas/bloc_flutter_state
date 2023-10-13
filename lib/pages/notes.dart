@@ -21,6 +21,7 @@ class NotesPage extends StatelessWidget {
       create: (context) => NotesBloc(
         loginApi: LoginApi(),
         notesAPi: NotesApi(),
+        accLoginHandle: const LoginHandle.foobar(),
       ),
       child: Scaffold(
         appBar: AppBar(
