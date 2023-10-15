@@ -1,6 +1,6 @@
-import 'package:bloc_flutter_state/views/email_text_field.dart';
-import 'package:bloc_flutter_state/views/login_button.dart';
-import 'package:bloc_flutter_state/views/password_text_field.dart';
+import 'package:bloc_flutter_state/widgets/email_text_field.dart';
+import 'package:bloc_flutter_state/widgets/login_button.dart';
+import 'package:bloc_flutter_state/widgets/password_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 

@@ -55,3 +55,17 @@ class ImagesBloc extends Bloc<ImagesEvent, ImagesState> {
     });
   }
 }
+
+class TopBloc extends ImagesBloc {
+  TopBloc({
+    required super.waitBeforeLoading,
+    required super.urls,
+  });
+}
+
+class BottomBloc extends ImagesBloc {
+  BottomBloc({
+    required super.waitBeforeLoading,
+    required super.urls,
+  });
+}

@@ -1,7 +1,8 @@
 import 'package:bloc_flutter_state/bloc/persons_bloc.dart';
-import 'package:bloc_flutter_state/pages/notes.dart';
-import 'package:bloc_flutter_state/pages/persons.dart';
-import 'package:bloc_flutter_state/pages/random_name.dart';
+import 'package:bloc_flutter_state/pages/images_page.dart';
+import 'package:bloc_flutter_state/pages/notes_page.dart';
+import 'package:bloc_flutter_state/pages/persons_page.dart';
+import 'package:bloc_flutter_state/pages/random_name_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
         ),
         home: const HomePage(),
         routes: {
+          '/images': (context) => const ImagesPage(),
           '/notes': (context) => const NotesPage(),
           '/persons': (context) => const PersonsPage(),
           '/random_name': (context) => const RandomNamePage(),
@@ -59,6 +61,12 @@ class HomePage extends StatelessWidget {
         width: double.infinity,
         child: Column(
           children: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed('/images');
+              },
+              child: const Text('Images'),
+            ),
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context).pushNamed('/notes');

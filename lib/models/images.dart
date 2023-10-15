@@ -1,7 +1,8 @@
 const images = [
-  'https://images.pexels.com/photos/9638689/pexels-photo-9638689.jpeg?auto=compress&cs=tinysrgb&w=1600',
-  'https://images.pexels.com/photos/17676464/pexels-photo-17676464/free-photo-of-a-house-on-a-hill-between-trees-in-the-countryside.jpeg?auto=compress&cs=tinysrgb&w=1600',
-  'https://images.pexels.com/photos/12879014/pexels-photo-12879014.jpeg?auto=compress&cs=tinysrgb&w=1600',
-  'https://images.pexels.com/photos/16948299/pexels-photo-16948299/free-photo-of-close-up-of-pink-flowers.jpeg?auto=compress&cs=tinysrgb&w=1600',
-  'https://images.pexels.com/photos/17038848/pexels-photo-17038848/free-photo-of-river-flowing-in-green-valley.jpeg?auto=compress&cs=tinysrgb&w=1600',
+  'https://images.pexels.com/photos/7676308/pexels-photo-7676308.jpeg?auto=compress&cs=tinysrgb&w=1600',
+  'https://images.pexels.com/photos/6054896/pexels-photo-6054896.jpeg?auto=compress&cs=tinysrgb&w=1600',
+  'https://images.pexels.com/photos/4894421/pexels-photo-4894421.jpeg?auto=compress&cs=tinysrgb&w=1600',
+  'https://images.pexels.com/photos/6900713/pexels-photo-6900713.jpeg?auto=compress&cs=tinysrgb&w=1600',
+  'https://images.pexels.com/photos/7459424/pexels-photo-7459424.jpeg?auto=compress&cs=tinysrgb&w=1600',
+  'https://images.pexels.com/photos/8152002/pexels-photo-8152002.jpeg?auto=compress&cs=tinysrgb&w=1600',
 ];
