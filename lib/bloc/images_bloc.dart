@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'dart:math' as math;
 
 typedef UrlRandomPicker = String Function(Iterable<String> imagesUrls);
+typedef UrlLoader = Future<Uint8List> Function(String url);
 
 extension RandomElement<T> on Iterable<T> {
   T getRandomElement() => elementAt(
@@ -16,10 +17,15 @@ class ImagesBloc extends Bloc<ImagesEvent, ImagesState> {
   String _pickRandomUrl(Iterable<String> imagesUrls) =>
       imagesUrls.getRandomElement();
 
+  Future<Uint8List> _loadUrl(String url) => NetworkAssetBundle(Uri.parse(url))
+      .load(url)
+      .then((byteData) => byteData.buffer.asUint8List());
+
   ImagesBloc({
     required Iterable<String> urls,
     Duration? waitBeforeLoading,
     UrlRandomPicker? urlPicker,
+    UrlLoader? urlLoader,
   }) : super(const ImagesState.empty()) {
     on<LoadNextUrlEvent>((event, emit) async {
       emit(
@@ -34,8 +40,7 @@ class ImagesBloc extends Bloc<ImagesEvent, ImagesState> {
         if (waitBeforeLoading != null) {
           await Future.delayed(waitBeforeLoading);
         }
-        final bundle = NetworkAssetBundle(Uri.parse(url));
-        final data = (await bundle.load(url)).buffer.asUint8List();
+        final data = await (urlLoader ?? _loadUrl)(url);
         emit(
           ImagesState(
             isLoading: false,
