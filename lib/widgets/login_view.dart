@@ -32,7 +32,7 @@ class LoginView extends HookWidget {
                 emailController: emailController,
                 passwordController: passwordController,
                 onLoginTapped: onLoginTapped,
-              )
+              ),
             ],
           ),
         ),

@@ -76,9 +76,10 @@ void main() {
   blocTest<NotesBloc, NotesState>(
     'NotesState is empty',
     build: () => NotesBloc(
-        loginApi: const DummyLoginApi.empty(),
-        notesAPi: const DummyNotesApi.empty(),
-        accLoginHandle: accLoginHandle),
+      loginApi: const DummyLoginApi.empty(),
+      notesAPi: const DummyNotesApi.empty(),
+      accLoginHandle: accLoginHandle,
+    ),
     verify: (notesState) => expect(
       notesState.state,
       const NotesState.empty(),
