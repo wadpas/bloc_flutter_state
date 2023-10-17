@@ -1,4 +1,4 @@
-import 'package:bloc_flutter_state/models/strings.dart';
+import 'package:bloc_flutter_state/data/strings.dart';
 import 'package:flutter/material.dart';
 
 class EmailTextField extends StatelessWidget {

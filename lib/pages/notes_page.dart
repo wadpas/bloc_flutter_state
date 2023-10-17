@@ -5,7 +5,7 @@ import 'package:bloc_flutter_state/bloc/notes_bloc.dart';
 import 'package:bloc_flutter_state/dialogs/generic_dialog.dart';
 import 'package:bloc_flutter_state/dialogs/loading_screen.dart';
 import 'package:bloc_flutter_state/models/notes.dart';
-import 'package:bloc_flutter_state/models/strings.dart';
+import 'package:bloc_flutter_state/data/strings.dart';
 import 'package:bloc_flutter_state/states/notes_state.dart';
 import 'package:bloc_flutter_state/widgets/iterable_list_view.dart';
 import 'package:bloc_flutter_state/widgets/login_view.dart';

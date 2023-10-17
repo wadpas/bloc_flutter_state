@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "708060883662",
+    "firebase_url": "https://comon-database-8a85d-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "comon-database-8a85d",
+    "storage_bucket": "comon-database-8a85d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:708060883662:android:15c94077dcd929aef6be9f",
+        "android_client_info": {
+          "package_name": "com.example.bloc_flutter_state"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "708060883662-a1ehkhkcarrrqqdjdtmqftgv6di4cf5v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNXUxHqUA_WwADui2-IcvYQLPp-UvjrVY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "708060883662-a1ehkhkcarrrqqdjdtmqftgv6di4cf5v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -68,8 +68,10 @@ class LoadingScreen {
                         stream: _text.stream,
                         builder: (context, snapshot) {
                           if (snapshot.hasData) {
-                            return Text(snapshot.data!,
-                                textAlign: TextAlign.center);
+                            return Text(
+                              snapshot.data!,
+                              textAlign: TextAlign.center,
+                            );
                           } else {
                             return Container();
                           }
