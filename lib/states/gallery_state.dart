@@ -11,7 +11,7 @@ abstract class GalleryState {
 
   const GalleryState({
     required this.isLoading,
-    required this.authError,
+    this.authError,
   });
 }
 
@@ -22,9 +22,9 @@ class GalleryStateLoggedIn extends GalleryState {
 
   const GalleryStateLoggedIn({
     required super.isLoading,
-    required super.authError,
     required this.user,
     required this.images,
+    super.authError,
   });
 
   @override
@@ -50,7 +50,7 @@ class GalleryStateLoggedIn extends GalleryState {
 class GalleryStateLoggedOut extends GalleryState {
   const GalleryStateLoggedOut({
     required super.isLoading,
-    required super.authError,
+    super.authError,
   });
 
   @override
@@ -62,7 +62,7 @@ class GalleryStateLoggedOut extends GalleryState {
 class GalleryStateRegistration extends GalleryState {
   const GalleryStateRegistration({
     required super.isLoading,
-    required super.authError,
+    super.authError,
   });
 }
 

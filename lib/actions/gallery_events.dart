@@ -1,12 +1,12 @@
 import 'package:flutter/foundation.dart';
 
 @immutable
-abstract class AppEvent {
-  const AppEvent();
+abstract class GalleryEvent {
+  const GalleryEvent();
 }
 
 @immutable
-class UploadImage implements AppEvent {
+class UploadImage implements GalleryEvent {
   final String filePath;
 
   const UploadImage({
@@ -15,22 +15,22 @@ class UploadImage implements AppEvent {
 }
 
 @immutable
-class DeleteAccount implements AppEvent {
+class DeleteAccount implements GalleryEvent {
   const DeleteAccount();
 }
 
 @immutable
-class LogOut implements AppEvent {
+class LogOut implements GalleryEvent {
   const LogOut();
 }
 
 @immutable
-class AppInitialize implements AppEvent {
-  const AppInitialize();
+class Initialize implements GalleryEvent {
+  const Initialize();
 }
 
 @immutable
-class LogIn implements AppEvent {
+class LogIn implements GalleryEvent {
   final String email;
   final String password;
 
@@ -41,17 +41,17 @@ class LogIn implements AppEvent {
 }
 
 @immutable
-class GoToRegistration implements AppEvent {
+class GoToRegistration implements GalleryEvent {
   const GoToRegistration();
 }
 
 @immutable
-class GoToLogin implements AppEvent {
+class GoToLogin implements GalleryEvent {
   const GoToLogin();
 }
 
 @immutable
-class Register implements AppEvent {
+class Register implements GalleryEvent {
   final String email;
   final String password;
 
