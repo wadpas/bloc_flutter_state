@@ -1,3 +1,4 @@
+import 'package:bloc_flutter_state/pages/gallery_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -45,6 +46,7 @@ class MyApp extends StatelessWidget {
         ),
         home: const HomePage(),
         routes: {
+          '/gallery': (context) => const GalleryPage(),
           '/images': (context) => const ImagesPage(),
           '/notes': (context) => const NotesPage(),
           '/persons': (context) => const PersonsPage(),
@@ -68,6 +70,12 @@ class HomePage extends StatelessWidget {
         width: double.infinity,
         child: Column(
           children: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed('/gallery');
+              },
+              child: const Text('Gallery'),
+            ),
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context).pushNamed('/images');

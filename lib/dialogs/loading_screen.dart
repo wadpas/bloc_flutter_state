@@ -87,6 +87,7 @@ class LoadingScreen {
       },
     );
     state.insert(overlay);
+
     return LoadindScreenController(
       close: () {
         _text.close();
