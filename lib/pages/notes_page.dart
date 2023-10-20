@@ -59,7 +59,7 @@ class NotesPage extends StatelessWidget {
             final notes = notesState.fetchedNotes;
             if (notes == null) {
               return LoginView(
-                onLoginTapped: (email, password) {
+                onLogin: (email, password) {
                   context.read<NotesBloc>().add(
                         LoginAction(
                           email: email,

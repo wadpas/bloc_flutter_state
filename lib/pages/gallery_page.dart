@@ -1,3 +1,4 @@
+import 'package:bloc_flutter_state/widgets/register_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -10,20 +11,39 @@ class GalleryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LoginView(
-      onLoginTapped: (email, password) {
-        context.read<GalleryBloc>().add(
-              LogIn(
-                email: email,
-                password: password,
-              ),
-            );
-      },
-      toRegistration: () {
-        context.read<GalleryBloc>().add(
-              const GoToRegistration(),
-            );
-      },
+    return Column(
+      children: [
+        LoginView(
+          onLogin: (email, password) {
+            context.read<GalleryBloc>().add(
+                  LogIn(
+                    email: email,
+                    password: password,
+                  ),
+                );
+          },
+          toRegistration: () {
+            context.read<GalleryBloc>().add(
+                  const GoToRegistration(),
+                );
+          },
+        ),
+        RegisterView(
+          onRegister: (email, password) {
+            context.read<GalleryBloc>().add(
+                  Register(
+                    email: email,
+                    password: password,
+                  ),
+                );
+          },
+          toLogin: () {
+            context.read<GalleryBloc>().add(
+                  const GoToLogin(),
+                );
+          },
+        ),
+      ],
     );
   }
 }

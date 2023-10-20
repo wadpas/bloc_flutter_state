@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-typedef OnLogin = void Function(
+typedef OnRegister = void Function(
   String email,
   String password,
 );
@@ -13,14 +13,14 @@ extension IfDebugging on String {
   String? get ifDebugging => kDebugMode ? this : null;
 }
 
-class LoginView extends HookWidget {
-  final OnLogin onLogin;
-  final Function? toRegistration;
+class RegisterView extends HookWidget {
+  final OnRegister onRegister;
+  final Function? toLogin;
 
-  const LoginView({
+  const RegisterView({
     super.key,
-    required this.onLogin,
-    this.toRegistration,
+    required this.onRegister,
+    this.toLogin,
   });
 
   @override
@@ -66,17 +66,17 @@ class LoginView extends HookWidget {
                       optionBuilder: () => {ok: true},
                     );
                   } else {
-                    onLogin(email, password);
+                    onRegister(email, password);
                   }
                 },
                 child: const Text(login),
               ),
-              if (toRegistration != null)
+              if (toLogin != null)
                 ElevatedButton(
                   onPressed: () {
-                    toRegistration!();
+                    toLogin!();
                   },
-                  child: const Text('To Registration'),
+                  child: const Text('To Login'),
                 ),
             ],
           ),
