@@ -17,7 +17,7 @@ class NotesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
+    return BlocProvider<NotesBloc>(
       create: (context) => NotesBloc(
         loginApi: LoginApi(),
         notesAPi: NotesApi(),

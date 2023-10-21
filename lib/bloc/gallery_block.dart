@@ -14,14 +14,6 @@ class GalleryBloc extends Bloc<GalleryEvent, GalleryState> {
             isLoading: false,
           ),
         ) {
-    on<GoToRegistration>(
-      (event, emit) {
-        const GalleryStateRegistration(
-          isLoading: false,
-        );
-      },
-    );
-
     on<LogIn>(
       (event, emit) async {
         emit(
@@ -57,6 +49,16 @@ class GalleryBloc extends Bloc<GalleryEvent, GalleryState> {
       (event, emit) {
         emit(
           const GalleryStateLoggedOut(
+            isLoading: false,
+          ),
+        );
+      },
+    );
+
+    on<GoToRegistration>(
+      (event, emit) {
+        emit(
+          const GalleryStateRegistration(
             isLoading: false,
           ),
         );

@@ -25,9 +25,8 @@ class RegisterView extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final emailController =
-        useTextEditingController(text: 'foo@bar.com'.ifDebugging);
-    final passwordController = useTextEditingController(text: 'foobar');
+    final emailController = useTextEditingController();
+    final passwordController = useTextEditingController();
     return Center(
       child: Card(
         margin: const EdgeInsets.all(16),
