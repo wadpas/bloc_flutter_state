@@ -68,7 +68,7 @@ class RegisterView extends HookWidget {
                     onRegister(email, password);
                   }
                 },
-                child: const Text(login),
+                child: const Text('Register'),
               ),
               if (toLogin != null)
                 ElevatedButton(

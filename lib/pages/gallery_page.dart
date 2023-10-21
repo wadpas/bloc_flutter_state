@@ -21,9 +21,6 @@ class GalleryPage extends StatelessWidget {
           const Initialize(),
         ),
       child: Scaffold(
-        appBar: AppBar(
-          title: const Text('Gallery'),
-        ),
         body: BlocConsumer<GalleryBloc, GalleryState>(
           listener: (context, gState) {
             if (gState.isLoading) {

@@ -24,35 +24,32 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => PersonsBloc(),
-      child: MaterialApp(
-        title: 'Bloc Flutter',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(
-            seedColor: Colors.red,
+    return MaterialApp(
+      title: 'Bloc Flutter',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.red,
+        ),
+        useMaterial3: true,
+        textTheme: GoogleFonts.nunitoTextTheme().copyWith(
+          labelLarge: GoogleFonts.nunito(
+            fontSize: 18,
+            fontWeight: FontWeight.normal,
           ),
-          useMaterial3: true,
-          textTheme: GoogleFonts.mooliTextTheme().copyWith(
-            labelLarge: GoogleFonts.mooli(
-              fontSize: 18,
-              fontWeight: FontWeight.normal,
-            ),
-            bodyMedium: GoogleFonts.mooli(
-              fontSize: 18,
-              fontWeight: FontWeight.normal,
-            ),
+          bodyMedium: GoogleFonts.nunito(
+            fontSize: 18,
+            fontWeight: FontWeight.normal,
           ),
         ),
-        home: const HomePage(),
-        routes: {
-          '/gallery': (context) => const GalleryPage(),
-          '/images': (context) => const ImagesPage(),
-          '/notes': (context) => const NotesPage(),
-          '/persons': (context) => const PersonsPage(),
-          '/random_name': (context) => const RandomNamePage(),
-        },
       ),
+      home: const HomePage(),
+      routes: {
+        '/gallery': (context) => const GalleryPage(),
+        '/images': (context) => const ImagesPage(),
+        '/notes': (context) => const NotesPage(),
+        '/persons': (context) => const PersonsPage(),
+        '/random_name': (context) => const RandomNamePage(),
+      },
     );
   }
 }
